@@ -1,36 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:p="http://www.springframework.org/schema/p"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mvc="http://www.springframework.org/schema/mvc"
-    xmlns:cache="http://www.springframework.org/schema/cache"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd  http://www.springframework.org/schema/cache 
-        http://www.springframework.org/schema/cache/spring-cache-3.2.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-
- <bean id="viewresolver" class=" org.springframework.web.servlet.view.InternalResourceViewResolver">
- <property name="prefix" value="/WEB-INF/pages/"></property>
- <property name="suffix" value=".jsp"></property>
- </bean> 
- <bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="irvr">
+<property value="/WEB-INF/pages/" name="prefix"/>
+<property value=".jsp" name="suffix"/>
+</bean> 
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
  <property name="mappings">
  <props>
  <prop key="home.htm">hvc</prop>
- <prop key="aboutUs.htm">auvc</prop> 
- <prop key="contactUs.htm">cuvc</prop>
- <prop key="wish.htm">wmgc</prop>
  </props>
  </property>
  </bean>
  <bean class="com.java.HomeViewController" id="hvc"/>
-<bean class="com.java.AboutusViewController" id="auvc"/>
-<bean class="com.java.ContactusViewController" id="cuvc"/>
-<bean class="com.java.WishMessageGeneratorController" id="wmgc"/>   
 </beans>
